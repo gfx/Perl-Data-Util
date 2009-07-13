@@ -1,5 +1,9 @@
 Revision history for Data-Util
 
+0.52
+	- fix t/06_subroutine.t for bleadperl
+	- add repository information
+
 0.51 Thu Jul  9 09:42:11 2009
 	- add rx() and is_rx() (alias regex_ref() and is_regex_ref())
 	- fix possible segv in modifiers (t/23_largeargs.t)
