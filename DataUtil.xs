@@ -355,7 +355,7 @@ my_instance_of(pTHX_ SV* const x, SV* const klass){
 			SPAGAIN;
 
 			retval = SvTRUE(TOPs);
-			POPs;
+			(void)POPs;
 
 			PUTBACK;
 
@@ -462,7 +462,7 @@ my_opt_add(pTHX_
 		av_push(result_av, newRV_noinc((SV*) av_make(2, pair)));
 	}
 	else{ /* $result{$name} = $value */
-		hv_store_ent(result_hv, name, newSVsv(value), 0U);
+		(void)hv_store_ent(result_hv, name, newSVsv(value), 0U);
 	}
 }
 
@@ -641,7 +641,7 @@ my_uninstall_sub(pTHX_ HV* const stash, const char* const name, STRLEN const nam
 			if(SvROK((SV*)gv) && ckWARN(WARN_MISC)){
 				Perl_warner(aTHX_ packWARN(WARN_MISC), "Constant subroutine %s uninstalled", name);
 			}
-			hv_delete(stash, name, namelen, G_DISCARD);
+			(void)hv_delete(stash, name, namelen, G_DISCARD);
 			return;
 		}
 
@@ -658,7 +658,7 @@ my_uninstall_sub(pTHX_ HV* const stash, const char* const name, STRLEN const nam
 			Perl_warner(aTHX_ packWARN(WARN_MISC), "Constant subroutine %s uninstalled", name);
 		}
 
-		hv_delete(stash, name, namelen, G_DISCARD);
+		(void)hv_delete(stash, name, namelen, G_DISCARD);
 
 		if(SvREFCNT(gv) == 0 || !(
 			   GvSV(gv)
