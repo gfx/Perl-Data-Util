@@ -1,0 +1,44 @@
+NAME
+
+	Data::Util - A selection of utilities for data and data types
+
+SYNOPSIS
+
+	use Data::Util qw(:all);
+
+	if(is_instance($obj, 'SomeClass')){
+		# ...
+	}
+
+	Or, try "perl -Mblib example/synopsis.pl" after "make test".
+
+DESCRIPTION
+
+	This module provides utilities for data and data types.
+
+	See "perldoc Data::Util" for the rest of the document.
+
+BENCHMARKS
+
+	There are benchmarks in "benchmark/" directory,
+	e.g. try "perl -Mblib example/inst_bench.pl" after "make test".
+
+DEPENDENCIES
+
+	perl 5.8.1 or later.
+
+INSTALLATION
+
+	To install this module, run the following commands:
+
+	perl Makefile.PL
+	make
+	make test
+	make install
+
+COPYRIGHT AND LICENCE
+
+	Copyright (c) 2008 Goro Fuji, Some rights reserved.
+
+	This program is free software; you can redistribute it and/or
+	modify it under the same terms as Perl itself.
