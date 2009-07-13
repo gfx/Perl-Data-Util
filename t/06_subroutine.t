@@ -1,7 +1,7 @@
 #!perl -w
 
 use strict;
-use Test::More tests =>36;
+use Test::More tests =>32;
 use Test::Exception;
 
 use Data::Util qw(:all);
@@ -88,15 +88,6 @@ SKIP:{
 
 is Foo::foo(), 1, 'install closure';
 is Foo::foo(), 2;
-
-delete $main::{__ANON__};
-is Foo::foo(), 3, 'after *main::__ANON__ deleted';
-is Foo::foo(), 4;
-
-my $f = \&Foo::foo;
-delete $Foo::{foo};
-is $f->(), 5, 'after *Foo::foo deleted';
-is $f->(), 6;
 
 
 SKIP:{

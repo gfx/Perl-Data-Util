@@ -615,26 +615,16 @@ my_install_sub(pTHX_ HV* const stash, const char* const name, STRLEN const namel
 
 	if(!isGV(gv)) gv_init(gv, stash, name, namelen, GV_ADDMULTI);
 
-	if(SvAMAGIC(code_ref)){
-		code_ref = newRV_inc((SV*)code);
-		sv_2mortal(code_ref);
-	}
-
-	sv_setsv_mg((SV*)gv, code_ref); /* *foo = \&bar */
+	my_gv_setsv(aTHX_ gv, (SV*)code); /* *foo = \&bar */
 
 	if(CvANON(code)
 		&& CvGV(code)                            /* under construction? */
-		&& isGV(CvGV(code))                      /* released? */
-		&& strEQ(GvNAME(CvGV(code)), "__ANON__") /* Sub::Name doesn't turn CvANON off. */){
-
-		/* save the original gv on magic slot */
-		sv_magicext((SV*)code, (SV*)CvGV(code), PERL_MAGIC_ext, &subr_name_vtbl, NULL, 0);
+		&& isGV(CvGV(code))                      /* released? */){
 
 		/* rename cv with gv */
 		CvGV(code) = gv;
 		CvANON_off(code);
 	}
-
 }
 
 static void
