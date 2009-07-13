@@ -10,3 +10,5 @@ Makefile*
 META.yml
 inc/
 MANIFEST
+DataUtil.c
+*.bak
