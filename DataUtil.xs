@@ -350,7 +350,7 @@ my_instance_of(pTHX_ SV* const x, SV* const klass){
 			PUSHs(klass);
 			PUTBACK;
 
-			call_sv((SV*)isa, G_SCALAR);
+			call_sv((SV*)isa, G_SCALAR | G_METHOD);
 
 			SPAGAIN;
 
@@ -939,8 +939,8 @@ PPCODE:
 
 		if(GIMME_V == G_ARRAY){
 			EXTEND(SP, 2);
-			mPUSHp(HvNAME_get(stash), HvNAMELEN_get(stash));
-			mPUSHp(GvNAME(gv), GvNAMELEN(gv));
+			mPUSHs(newSVpvn_share(HvNAME_get(stash), HvNAMELEN_get(stash), 0U));
+			mPUSHs(newSVpvn_share(GvNAME(gv), GvNAMELEN(gv), 0U));
 		}
 		else{
 			SV* const sv = newSVpvf("%s::%s", HvNAME_get(stash), GvNAME(gv));

@@ -20,7 +20,7 @@ unless($TESTING_PERL_ONLY){
 		require XSLoader;
 		XSLoader::load(__PACKAGE__, $VERSION);
 	};
-#
+
 #	if($@ && $ENV{DATA_UTIL_DEBUG}){
 #		warn $@;
 #	}
