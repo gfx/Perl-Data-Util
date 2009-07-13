@@ -1,6 +1,6 @@
 Revision history for Data-Util
 
-0.52
+0.52 Mon Jul 13 12:20:03 2009
 	- fix t/06_subroutine.t for bleadperl
 	- add repository information
 
