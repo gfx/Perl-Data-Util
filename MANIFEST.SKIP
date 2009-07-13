@@ -35,3 +35,6 @@
 
 \bauthor\b
 \.git/
+\bDataUtil\.c$
+\.o(?:ut)?$
+\.bs$

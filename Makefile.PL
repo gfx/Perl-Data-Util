@@ -13,6 +13,7 @@ requires 'MRO::Compat' => 0.09  if $] < 5.010_000;
 
 test_requires 'Test::More'      => 0.62;
 test_requires 'Test::Exception' => 0.27;
+test_requires 'Sub::Uplevel'; # in Test::Exception
 
 test_requires 'Scope::Guard';
 
@@ -39,6 +40,8 @@ else{
 	);
 	requires 'Hash::Util::FieldHash::Compat';
 }
+
+auto_set_repository;
 
 WriteMakefile(
 	clean => {
