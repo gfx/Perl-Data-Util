@@ -163,7 +163,10 @@ my_call_av(pTHX_ AV* const subs, SV** const args_ary, I32 const args_len){
 		XPUSHary(args_ary, 0, args_len);
 		PUTBACK;
 
-		call_sv(AvARRAY(subs)[i], G_VOID | G_DISCARD);
+		call_sv(AvARRAY(subs)[i], G_VOID | G_DISCARD | G_EVAL);
+		if(SvTRUE(ERRSV)){
+		        croak(NULL);
+		}
 	}
 }
 
