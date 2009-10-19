@@ -1,5 +1,8 @@
 Revision history for Data-Util
 
+0.53 Mon Oct 19 19:08:19 2009
+    - fix an issue which broke method modifiers in some cases
+
 0.52 Mon Jul 13 12:20:03 2009
     - fix t/06_subroutine.t for bleadperl
     - add repository information
