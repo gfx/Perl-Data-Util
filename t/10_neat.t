@@ -21,7 +21,7 @@ use Data::Util qw(neat);
 
 is neat(42), 42, 'neat()';
 is neat(3.14), 3.14;
-is neat("foo\n"), q{"foo\n"};
+is neat("foo"), q{"foo"};
 is neat(undef), 'undef';
 is neat(*ok), '*main::ok';
 ok neat({'!foo' => '!bar'});
@@ -35,8 +35,8 @@ ok neat(+9**9**9), '+Inf';
 ok neat(-9**9**9), '-Inf';
 ok neat(9**9**9 - 9**9**9), 'NaN';
 
-tie my $s, 'Tie::StdScalar', "foo\n";
-is neat($s), q{"foo\n"}, 'for magical scalar';
+tie my $s, 'Tie::StdScalar', "foo";
+is neat($s), q{"foo"}, 'for magical scalar';
 
 my $x;
 
