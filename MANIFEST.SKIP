@@ -38,3 +38,4 @@
 \bDataUtil\.c$
 \.o(?:ut)?$
 \.bs$
+^ppport\.h$

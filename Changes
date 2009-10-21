@@ -1,7 +1,11 @@
 Revision history for Data-Util
 
+0.54 Wed Oct 21 14:24:29 2009
+    - re-fix the method-modifiers issue (thanks @nekoya)
+        - this issue seems related to RT #69939
+
 0.53 Mon Oct 19 19:08:19 2009
-    - fix an issue which broke method modifiers in some cases
+    - fix an issue which broke method modifiers in some cases (thanks @nekoya)
 
 0.52 Mon Jul 13 12:20:03 2009
     - fix t/06_subroutine.t for bleadperl
