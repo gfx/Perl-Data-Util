@@ -21,7 +21,7 @@ my_mg_find_by_vtbl(pTHX_ SV* const sv, const MGVTBL* const vtbl){
 
 XS(XS_Data__Util_curried){
     dVAR; dXSARGS;
-    MAGIC* const mg = mg_find_by_vtbl((SV*)cv, &curried_vtbl);
+    MAGIC* const mg = (MAGIC*)XSANY.any_ptr; // mg_find_by_vtbl((SV*)cv, &curried_vtbl);
     assert(mg);
 
     SP -= items;
@@ -54,7 +54,7 @@ XS(XS_Data__Util_curried){
 
         SV** sph               = NULL; // indicates *_
 
-        I32 const is_method    = XSANY.any_i32;
+        U16 const is_method    = mg->mg_private; /* G_METHOD */
         I32 push_size          = len - 1; /* -1: proc */
         register I32 i;
         SV* proc;
@@ -179,7 +179,7 @@ my_call_av(pTHX_ AV* const subs, SV** const args_ary, I32 const args_len){
 
 XS(XS_Data__Util_modified){
     dVAR; dXSARGS;
-    MAGIC* const mg = mg_find_by_vtbl((SV*)cv, &modified_vtbl);
+    MAGIC* const mg = (MAGIC*)XSANY.any_ptr; // mg_find_by_vtbl((SV*)cv, &modified_vtbl);
     assert(mg);
 
     SP -= items;

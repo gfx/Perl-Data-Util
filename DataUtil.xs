@@ -574,6 +574,7 @@ my_build_around_code(pTHX_ SV* code_ref, AV* const around){
 	I32 i;
 	for(i = av_len(around); i >= 0; i--){
 		CV* current;
+		MAGIC* mg;
 		SV* const sv = validate(*av_fetch(around, i, TRUE), T_CV);
 		AV* const params       = newAV();
 		AV* const placeholders = newAV();
@@ -586,10 +587,12 @@ my_build_around_code(pTHX_ SV* code_ref, AV* const around){
 		SvREFCNT_inc_simple_void_NN(PL_defgv);
 
 		current = newXS(NULL /* anonymous */, XS_Data__Util_curried, __FILE__);
-		sv_magicext((SV*)current, (SV*)params, PERL_MAGIC_ext, &curried_vtbl, (const char*)placeholders, HEf_SVKEY);
+		mg = sv_magicext((SV*)current, (SV*)params, PERL_MAGIC_ext, &curried_vtbl, (const char*)placeholders, HEf_SVKEY);
 
 		SvREFCNT_dec(params);       /* because: refcnt++ in sv_magicext() */
 		SvREFCNT_dec(placeholders); /* because: refcnt++ in sv_magicext() */
+
+		CvXSUBANY(current).any_ptr = (void*)mg;
 
 		code_ref = newRV_noinc((SV*)current);
 		sv_2mortal(code_ref);
@@ -1011,8 +1014,9 @@ PREINIT:
 	CV* curried;
 	AV* params;
 	AV* placeholders;
-	I32 is_method;
+	U16 is_method;
 	I32 i;
+	MAGIC* mg;
 CODE:
 	SvGETMAGIC(code);
 	is_method = check_type(code, T_CV) ? 0 : G_METHOD;
@@ -1043,11 +1047,12 @@ CODE:
 		}
 	}
 	curried = newXS(NULL /* anonymous */, XS_Data__Util_curried, __FILE__);
-	CvXSUBANY(curried).any_i32 = is_method;
 
-	sv_magicext((SV*)curried, (SV*)params, PERL_MAGIC_ext, &curried_vtbl, (const char*)placeholders, HEf_SVKEY);
+	mg = sv_magicext((SV*)curried, (SV*)params, PERL_MAGIC_ext, &curried_vtbl, (const char*)placeholders, HEf_SVKEY);
 	SvREFCNT_dec((SV*)params);       /* refcnt++ in sv_magicext() */
 	SvREFCNT_dec((SV*)placeholders); /* refcnt++ in sv_magicext() */
+	mg->mg_private = is_method;
+	CvXSUBANY(curried).any_ptr = mg;
 
 	RETVAL = newRV_noinc((SV*)curried);
 OUTPUT:
@@ -1063,6 +1068,7 @@ PREINIT:
 	AV* after;
 	AV* modifiers; /* (before, around, after, original, current) */
 	I32 i;
+	MAGIC* mg;
 CODE:
 	validate(code, T_CV);
 
@@ -1114,8 +1120,9 @@ CODE:
 
 	modified = newXS(NULL /* anonymous */, XS_Data__Util_modified, __FILE__);
 
-	sv_magicext((SV*)modified, (SV*)modifiers, PERL_MAGIC_ext, &modified_vtbl, NULL, 0);
+	mg = sv_magicext((SV*)modified, (SV*)modifiers, PERL_MAGIC_ext, &modified_vtbl, NULL, 0);
 	SvREFCNT_dec((SV*)modifiers); /* refcnt++ in sv_magicext() */
+	CvXSUBANY(modified).any_ptr = (void*)mg;
 
 	RETVAL = newRV_noinc((SV*)modified);
 OUTPUT:
