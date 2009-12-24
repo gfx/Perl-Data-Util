@@ -1,13 +1,10 @@
 use strict;
 use warnings;
 use inc::Module::Install;
-
-name 'Data-Util';
+use Module::Install::XSUtil 0.19;
 
 all_from 'lib/Data/Util.pm';
 
-use_ppport 3.19;
-cc_warnings;
 requires 'MRO::Compat' => 0.09  if $] < 5.010_000;
 
 test_requires 'Test::More'      => 0.62;
@@ -17,25 +14,15 @@ test_requires 'Scope::Guard';
 
 author_tests 'xt', 'author/t';
 
-my $use_xs = can_cc();
-
-for (@ARGV){
-	/^-pp/ and $use_xs = 0;
-	/^-xs/ and $use_xs = 1;
-}
+my $use_xs = cc_available();
 
 if($use_xs){
-	makemaker_args(
-		DEFINE => '-DINLINE_STR_EQ',
-		OBJECT => '$(O_FILES)',
-	);
+    use_ppport;
+    cc_warnings;
+	cc_define '-DINLINE_STR_EQ';
 	test_requires 'Hash::Util::FieldHash::Compat';
 }
 else{
-	makemaker_args(
-		XS => {},
-		C  => [],
-	);
 	requires 'Hash::Util::FieldHash::Compat';
 }
 
