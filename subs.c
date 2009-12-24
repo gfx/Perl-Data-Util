@@ -149,7 +149,7 @@ XS(XS_Data__Util_curried){
         /* work around RT #69939 */
         SAVESPTR(ERRSV);
         call_sv(proc, GIMME_V | is_method | G_EVAL);
-        if(SvTRUE(ERRSV)){
+        if(SvTRUEx(ERRSV)){
             croak(NULL); /* rethrow */
         }
     }
@@ -171,7 +171,7 @@ my_call_av(pTHX_ AV* const subs, SV** const args_ary, I32 const args_len){
         /* work around RT #69939 */
         SAVESPTR(ERRSV);
         call_sv(AvARRAY(subs)[i], G_VOID | G_DISCARD | G_EVAL);
-        if(SvTRUE(ERRSV)){
+        if(SvTRUEx(ERRSV)){
             croak(NULL);
         }
     }
