@@ -17,7 +17,7 @@ author_tests 'xt', 'author/t';
 my $use_xs = cc_available();
 
 if($use_xs){
-    use_ppport;
+    use_ppport 3.19;
     cc_warnings;
 	cc_define '-DINLINE_STR_EQ';
 	test_requires 'Hash::Util::FieldHash::Compat';
