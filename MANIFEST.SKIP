@@ -39,3 +39,4 @@
 \.o(?:ut)?$
 \.bs$
 ^ppport\.h$
+\.stadkcump$
