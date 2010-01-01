@@ -3,7 +3,6 @@
 use strict;
 use constant HAS_THREADS => eval{ require threads };
 use Test::More;
-use Test::Exception;
 
 BEGIN{
 	if($INC{'Devel/Cover.pm'}){
@@ -54,9 +53,10 @@ my $thr1 = async{
 	yield;
 	ok !is_instance(Baz->new, 'Foo');
 
-	throws_ok{
+	eval{
 		instance(Foo->new, 'Bar');
-	} qr/Validation failed/;
+	};
+	like $@, qr/Validation failed/;
 
 	return 1;
 };
@@ -69,9 +69,10 @@ my $thr2 = async{
 	yield;
 	ok !is_instance(Baz->new, 'Foo');
 
-	throws_ok{
+	eval{
 		instance(Foo->new, 'Bar');
-	} qr/Validation failed/;
+	};
+	like $@, qr/Validation failed/;
 
 	return 1;
 };
@@ -82,9 +83,10 @@ my $thr2 = async{
 
 	ok !is_instance(Baz->new, 'Foo');
 
-	throws_ok{
+	eval {
 		instance(Foo->new, 'Bar');
-	} qr/Validation failed/;
+	};
+	like $@, qr/Validation failed/;
 }
 
 ok $thr2->join(), 'join a thread (2)';
