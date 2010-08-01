@@ -43,7 +43,7 @@ foreach my $x(0, 42, -42, 3.00, '0', '+0', '-0', ' -42', '+42 ', 2**30, $s){
 }
 tie $s, 'Tie::StdScalar', 'magic';
 foreach my $x(
-		undef, 3.14, '0.0', 'foo', 'Inf', '-Infinity', 'NaN',
+		undef, 3.14, '0.0', 'foo', (9**9**9), -(9**9**9), 'NaN',
 		INF(), -INF(), NAN(), -NAN(), 1 != 1,
 	*ok, [42], *STDIN{IO}, '0 but true', $s){
 

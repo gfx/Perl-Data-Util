@@ -193,7 +193,7 @@ XS(XS_Data__Util_modified){
         dXSTARG;
         AV* const args = (AV*)TARG;
         SV** args_ary;
-        SvUPGRADE(TARG, SVt_PVAV);
+        (void)SvUPGRADE(TARG, SVt_PVAV);
 
         if(AvMAX(args) < items){
             av_extend(args, items);
