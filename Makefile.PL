@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 use inc::Module::Install;
-use Module::Install::XSUtil 0.19;
+use Module::Install::XSUtil 0.25;
 
 all_from 'lib/Data/Util.pm';
 
@@ -14,9 +14,7 @@ test_requires 'Scope::Guard';
 
 author_tests 'xt', 'author/t';
 
-my $use_xs = cc_available();
-
-if($use_xs){
+if(want_xs()){
     use_ppport;
     cc_warnings;
 	cc_define '-DINLINE_STR_EQ';

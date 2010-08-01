@@ -1,6 +1,6 @@
 package Data::Util::PurePerl;
 
-die qq{Don't use Data::Util::PurePerl directly, use Data::Util instead.\n}
+die qq{Don't use Data::Util::PurePerl directly, use Data::Util instead.\n} # ' for poor editors
 	if caller() ne 'Data::Util';
 
 package
