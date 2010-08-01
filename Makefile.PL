@@ -15,24 +15,24 @@ test_requires 'Scope::Guard';
 author_tests 'xt', 'author/t';
 
 if(want_xs()){
-    use_ppport;
+    use_ppport 3.19;
     cc_warnings;
-	cc_define '-DINLINE_STR_EQ';
-	test_requires 'Hash::Util::FieldHash::Compat';
+    cc_define '-DINLINE_STR_EQ';
+    test_requires 'Hash::Util::FieldHash::Compat';
 }
 else{
-	requires 'Hash::Util::FieldHash::Compat';
+    requires 'Hash::Util::FieldHash::Compat';
 }
 
 auto_set_repository;
 
 clean_files  q{
-	Data-Util-*
-	*.stackdump
-	*.gcov *.gcda *.gcno
-	*.out
-	nytprof
-	cover_db
+    Data-Util-*
+    *.stackdump
+    *.gcov *.gcda *.gcno
+    *.out
+    nytprof
+    cover_db
 };
 
 WriteAll check_nmake => 0;
