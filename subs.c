@@ -146,8 +146,7 @@ XS(XS_Data__Util_curried){
             }
         }
 
-        /* work around RT #69939 */
-        SAVESPTR(ERRSV);
+        /* G_EVAL to workaround RT #69939 */
         call_sv(proc, GIMME_V | is_method | G_EVAL);
         if(SvTRUEx(ERRSV)){
             croak(NULL); /* rethrow */
@@ -168,8 +167,7 @@ my_call_av(pTHX_ AV* const subs, SV** const args_ary, I32 const args_len){
         XPUSHary(args_ary, 0, args_len);
         PUTBACK;
 
-        /* work around RT #69939 */
-        SAVESPTR(ERRSV);
+        /* G_EVAL to workaround RT #69939 */
         call_sv(AvARRAY(subs)[i], G_VOID | G_DISCARD | G_EVAL);
         if(SvTRUEx(ERRSV)){
             croak(NULL);
@@ -189,7 +187,6 @@ XS(XS_Data__Util_modified){
         SV* const current = (SV*)AvARRAY(subs_av)[M_CURRENT];
         AV* const after   = (AV*)AvARRAY(subs_av)[M_AFTER];
         I32 i;
-
         dXSTARG;
         AV* const args = (AV*)TARG;
         SV** args_ary;
