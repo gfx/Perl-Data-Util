@@ -7,7 +7,7 @@ Data::Util::JA - データとデータ型のためのユーティリティ集
 
 =head1 VERSION
 
-This document describes Data::Util version 0.56
+This document describes Data::Util version 0.57
 
 =for test_synopsis no warnings 'redefine';
 

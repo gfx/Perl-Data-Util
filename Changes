@@ -1,5 +1,8 @@
 Revision history for Data-Util
 
+0.57 Sun Aug  1 17:33:44 2010
+    - Fix tests for newer perls
+
 0.56 Fri Jan  1 12:24:20 2010
     - Fix RT #53167 (thanks to Andreas Koenig)
     - Fix a configuration issue
