@@ -96,6 +96,30 @@ my_fail(pTHX_ const char* const name, SV* value){
 }
 
 static int
+S_nv_is_integer(pTHX_ NV const nv) {
+    if(nv == (NV)(IV)nv){
+        return TRUE;
+    }
+    else {
+        char buf[64];  /* Must fit sprintf/Gconvert of longest NV */
+        char* p;
+        (void)Gconvert(nv, NV_DIG, 0, buf);
+        p = &buf[0];
+
+        /* -?[0-9]+ */
+        if(*p == '-') p++;
+
+        while(*p){
+            if(!isDIGIT(*p)){
+                return FALSE;
+            }
+            p++;
+        }
+        return TRUE;
+    }
+}
+
+static int
 my_check_type_primitive(pTHX_ SV* const sv, const my_type_t t){
 	if(!SvOK(sv) || SvROK(sv) || isGV(sv)){
 		return FALSE;
@@ -113,7 +137,7 @@ my_check_type_primitive(pTHX_ SV* const sv, const my_type_t t){
 		}
 		else if(SvNOKp(sv)){
 			NV const nv = SvNVX(sv);
-			return nv < 0 ? (nv == (NV)(IV)nv) :  (nv == (NV)(UV)nv);
+			return S_nv_is_integer(aTHX_ nv);
 		}
 		else if(SvIOKp(sv)){
 			return TRUE;
