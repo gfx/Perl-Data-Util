@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 use inc::Module::Install;
-use Module::Install::XSUtil 0.25;
+use Module::Install::XSUtil 0.32;
 
 all_from 'lib/Data/Util.pm';
 
@@ -15,7 +15,7 @@ test_requires 'Scope::Guard';
 author_tests 'xt', 'author/t';
 
 if(want_xs()){
-    use_ppport 3.19;
+    use_xshelper;
     cc_warnings;
     cc_define '-DINLINE_STR_EQ';
     test_requires 'Hash::Util::FieldHash::Compat';

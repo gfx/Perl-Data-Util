@@ -649,7 +649,7 @@ my_install_sub(pTHX_ HV* const stash, const char* const name, STRLEN const namel
 		&& isGV(CvGV(code))                      /* released? */){
 
 		/* rename cv with gv */
-		CvGV(code) = gv;
+		CvGV_set(code, gv);
 		CvANON_off(code);
 	}
 }

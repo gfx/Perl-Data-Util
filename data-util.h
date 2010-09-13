@@ -1,13 +1,5 @@
 /* Data-Util/data-util.h */
-
-#define PERL_NO_GET_CONTEXT
-#include <EXTERN.h>
-#include <perl.h>
-#include <XSUB.h>
-
-#include "ppport.h"
-
-#include "c99portability.h"
+#include "xshelper.h"
 
 #include "mro_compat.h"
 #include "str_util.h"

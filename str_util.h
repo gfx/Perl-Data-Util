@@ -4,7 +4,7 @@
 #ifdef INLINE_STR_EQ
 
 #undef strnEQ
-static inline int
+STATIC_INLINE int
 strnEQ(const char* const x, const char* const y, size_t const n){
 	size_t i;
 	for(i = 0; i < n; i++){
@@ -15,7 +15,7 @@ strnEQ(const char* const x, const char* const y, size_t const n){
 	return TRUE;
 }
 #undef strEQ
-static inline int
+STATIC_INLINE int
 strEQ(const char* const x, const char* const y){
 	size_t i;
 	for(i = 0; ; i++){
