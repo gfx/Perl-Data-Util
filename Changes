@@ -1,5 +1,8 @@
 Revision history for Data-Util
 
+0.58 Mon Sep 13 19:40:34 2010
+    - Use GvCV_set() for newer perls
+
 0.57 Sun Aug  1 17:33:44 2010
     - Fix tests for newer perls
 
