@@ -1,5 +1,8 @@
 Revision history for Data-Util
 
+0.59 2011-10-19 20:08:49
+    - Re-packaging with better dependencies and latest M::I
+
 0.58 Mon Sep 13 19:40:34 2010
     - Use GvCV_set() for newer perls
 

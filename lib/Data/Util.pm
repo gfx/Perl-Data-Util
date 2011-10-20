@@ -4,7 +4,7 @@ use 5.008_001;
 use strict;
 #use warnings;
 
-our $VERSION = '0.58';
+our $VERSION = '0.59';
 
 use Exporter;
 our @ISA = qw(Exporter);
@@ -79,7 +79,7 @@ Data::Util - A selection of utilities for data and data types
 
 =head1 VERSION
 
-This document describes Data::Util version 0.58
+This document describes Data::Util version 0.59
 
 =head1 SYNOPSIS
 

@@ -16,3 +16,4 @@ DataUtil.c
 ppport.h
 xshelper.h
 *.stackdump
+*~
