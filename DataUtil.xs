@@ -804,14 +804,14 @@ ALIAS:
 	is_invocant = 0
 	invocant    = 1
 PREINIT:
-	int result;
+	bool result;
 CODE:
 	SvGETMAGIC(x);
 	if(SvROK(x)){
-		result = (int)SvOBJECT(SvRV(x));
+		result = SvOBJECT(SvRV(x)) ? TRUE : FALSE;
 	}
 	else if(is_string(x)){
-		result = (int)gv_stashsv(x, FALSE);
+		result = gv_stashsv(x, FALSE) ? TRUE : FALSE;
 	}
 	else{
 		result = FALSE;
