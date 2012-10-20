@@ -1,6 +1,6 @@
 use strict;
 use warnings;
-use inc::Module::Install    1.04;
+use inc::Module::Install    1.06;
 use Module::Install::XSUtil 0.41;
 
 all_from 'lib/Data/Util.pm';
