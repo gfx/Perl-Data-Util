@@ -128,10 +128,11 @@ This document describes Data::Util version 0.60
 
 	my($pkg, $name) = get_code_info(\&Foo::hello); # => ('Foo', 'hello')
 	my $fqn         = get_code_info(\&Foo::hello); # =>  'Foo::hello'
-	my $code        = get_code_ref('Foo::hello');  # => \&Foo::hello
+	my $code        = get_code_ref('Foo', 'hello');  # => \&Foo::hello
 
 	uninstall_subroutine('Foo', qw(hello goodby));
 
+    # simple format for errro messages (not the same as Data::Dumper)
 	print neat("Hello!\n"); # => "Hello!\n"
 	print neat(3.14);       # => 3.14
 	print neat(undef);      # => undef
@@ -338,7 +339,7 @@ For example:
 	);
 
 	# accepts a HASH reference
-	install_subroutine($pkg, { say => sub{ print @_, "\n" }); # 
+	install_subroutine($pkg, { say => sub{ print @_, "\n" }); #
 
 To re-install I<subr>, use C<< no warnings 'redefine' >> directive:
 
@@ -352,7 +353,7 @@ Uninstalls I<names> from I<package>.
 It is similar to C<Sub::Delete::delete_sub()>, but uninstall multiple
 subroutines at a time.
 
-If you want to specify deleted subroutines, you can supply 
+If you want to specify deleted subroutines, you can supply
 C<< name => \&subr >> pairs.
 
 For example:
@@ -410,7 +411,7 @@ C<< around => [subroutine(s)] >> called around I<subr>.
 C<< after  => [subroutine(s)] >> called after  I<subr>.
 
 This seems a constructor of modified subroutines and
-C<subroutine_modifier()> is property accessors, but it does not bless the 
+C<subroutine_modifier()> is property accessors, but it does not bless the
 modified subroutines.
 
 =item subroutine_modifier(subr)
