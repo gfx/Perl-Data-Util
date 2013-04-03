@@ -1,5 +1,8 @@
 Revision history for Data-Util
 
+0.62 2013-04-03 16:06:46
+    - Fix a crash on perl 5.17.x (tokuhirom)
+
 0.61 2013-01-28 10:52:13
     - Fix usage of get_code_ref() in SYNOPSIS (thanks to @toku_bass)
 
