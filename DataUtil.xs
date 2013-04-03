@@ -177,13 +177,20 @@ my_check_type_primitive(pTHX_ SV* const sv, const my_type_t t){
 static bool
 my_has_amagic_converter(pTHX_ SV* const sv, const my_type_t t){
 	const AMT* amt;
+    const HV *stash;
 	int o = 0;
 
-	if(!SvAMAGIC(sv)) return FALSE;
-
-	amt = (AMT*)mg_find((SV*)SvSTASH(SvRV(sv)), PERL_MAGIC_overload_table)->mg_ptr;
+	if (
+           (!SvAMAGIC(sv))
+        || (!(stash = SvSTASH(SvRV(sv))))
+        || (!Gv_AMG((HV*)stash))
+    ) {
+        return FALSE;
+    }
+	amt = (AMT*)mg_find((SV*)stash, PERL_MAGIC_overload_table)->mg_ptr;
 	assert(amt);
 	assert(AMT_AMAGIC(amt));
+
 
 	switch(t){
 	case T_SV:
@@ -220,6 +227,7 @@ my_check_type(pTHX_ SV* const sv, const my_type_t t){
 			return SvRXOK(sv);
 		}
 		else{
+            SvGETMAGIC(sv);
 			return my_has_amagic_converter(aTHX_ sv, t);
 		}
 	}
