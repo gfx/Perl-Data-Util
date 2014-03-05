@@ -1,5 +1,8 @@
 Revision history for Data-Util
 
+0.63 2014-03-06 07:42:05+0900
+    - Fix a crash on perl 5.19.x (tokuhirom)
+
 0.62 2013-04-03 16:06:46
     - Fix a crash on perl 5.17.x (tokuhirom)
 
