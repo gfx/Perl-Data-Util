@@ -62,6 +62,9 @@ XS(XS_Data__Util_curried){
         /* fill in params */
         for(i = 0; i < len; i++){
             SV* const ph = phs_ary[i];
+            if (!ph){
+                continue;
+            }
 
             if(isGV(ph)){ /* symbolic placeholder *_ */
                 if(!sph){
@@ -128,7 +131,7 @@ XS(XS_Data__Util_curried){
         }
 
         for(/* i is initialized above */; i < len; i++){
-            if(isGV(phs_ary[i])){
+            if(phs_ary[i] && isGV(phs_ary[i])){
                 /* warn("#sph %d - %d", (int)max_ph+1, (int)min_ph); //*/
                 PUSHary(sph, max_ph + 1, min_ph);
             }
@@ -140,7 +143,7 @@ XS(XS_Data__Util_curried){
 
         /* NOTE: need to clean up params before call_sv(), because call_sv() might die */
         for(i = 0; i < len; i++){
-            if(SvIOKp(phs_ary[i])){
+            if(phs_ary[i] && SvIOKp(phs_ary[i])){
                 /* NOTE: no need to SvREFCNT_dec(params_ary[i]) */
                 params_ary[i] = &PL_sv_undef;
             }
