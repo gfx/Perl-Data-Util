@@ -246,8 +246,16 @@ sub uninstall_subroutine {
 		my $glob = $stash->{$name};
 
 		if(ref(\$glob) ne 'GLOB'){
-			if(ref $glob){
+			if(ref $glob) {
+			    if(Scalar::Util::reftype $glob eq 'CODE'){
+				if(defined $specified_code &&
+				   $specified_code != $glob) {
+					next;
+				}
+			    }
+			    else {
 				warnings::warnif(misc => "Constant subroutine $name uninstalled");
+			    }
 			}
 			delete $stash->{$name};
 			next;
