@@ -25,3 +25,6 @@ xshelper.h
 !Build/
 !META.json
 !LICENSE
+/_build
+/lib/Data/Util.c
+/lib/Data/Util.xs
