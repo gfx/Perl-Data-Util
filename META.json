@@ -39,7 +39,8 @@
       },
       "configure" : {
          "requires" : {
-            "Module::Build" : "0.4005"
+            "Module::Build" : "0.4005",
+            "Module::Build::XSUtil" : "0.02"
          }
       },
       "develop" : {

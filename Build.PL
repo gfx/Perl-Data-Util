@@ -34,12 +34,12 @@ my %args = (
 
     build_requires => {
         'Devel::PPPort' => '3.19',
-        'ExtUtils::MakeMaker' => '6.59',
         'Test::More' => '0.62',
         'Test::Exception' => '0.27',
-        'Hash::Util::FieldHash::Compat' => '0',
         'Scope::Guard' => '0',
         'ExtUtils::ParseXS' => '3.18',
+        'Hash::Util::FieldHash::Compat' => '0',
+        'ExtUtils::MakeMaker' => '6.59',
     },
 
     test_requires => {

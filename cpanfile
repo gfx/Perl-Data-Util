@@ -10,3 +10,7 @@ on build => sub {
     requires 'Test::Exception', '0.27';
     requires 'Test::More', '0.62';
 };
+
+on configure => sub {
+    requires 'Module::Build::XSUtil' => '>=0.02';
+};
