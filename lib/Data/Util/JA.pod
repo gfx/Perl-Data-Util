@@ -262,7 +262,7 @@ C<< do{ defined($value) ? qq{"$value"} : 'undef' } >>を置き換える機能
 
 =item get_stash(invocant)
 
-I<invodant>のスタッシュ B<stash>，つまりシンボルテーブルハッシュが
+I<invocant>のスタッシュ B<stash>，つまりシンボルテーブルハッシュが
 存在すれば，そのスタッシュを返します。
 
 I<invocant>がオブジェクトリファレンスであれば，そのオブジェクトのパッケージの
@@ -596,4 +596,3 @@ This module is free software; you can redistribute it and/or
 modify it under the same terms as Perl itself.
 
 =cut
-

@@ -23,7 +23,6 @@ dependencies:
           plenv install $version $FLAGS
           plenv global $version
           plenv install-cpanm
-          cpanm -n Module::Install Module::Install::AuthorTests Module::Install::XSUtil Module::Install::Repository
         done
       fi
 
@@ -31,13 +30,13 @@ test:
   override:
     - plenv global 5.24.0
     - cpanm --installdeps -n .
-    - perl Makefile.PL && make && make test
+    - perl Build.PL && ./Build && ./Build test
     - plenv global 5.22.2
     - cpanm --installdeps -n .
-    - perl Makefile.PL && make && make test
+    - perl Build.PL && ./Build && ./Build test
     - plenv global 5.16.3
     - cpanm --installdeps -n .
-    - perl Makefile.PL && make && make test
+    - perl Build.PL && ./Build && ./Build test
     - plenv global 5.12.5
     - cpanm --installdeps -n .
-    - perl Makefile.PL && make && make test
+    - perl Build.PL && ./Build && ./Build test
