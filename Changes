@@ -1,5 +1,11 @@
 Revision history for Data-Util
 
+{{$NEXT}}
+
+0.64 2016-07-23T15:13:01Z
+    - Fix on perl 5.22.x or higher versions
+    - Minilla migrate
+
 0.63 2014-03-06 07:42:05+0900
     - Fix a crash on perl 5.19.x (tokuhirom)
 
@@ -167,4 +173,3 @@ Revision history for Data-Util
 0.01 Sat Oct  4 11:32:36 2008
     - original version; created by Module::Starter
         started as Scalar::Util::Ref
-

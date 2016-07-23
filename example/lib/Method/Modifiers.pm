@@ -4,7 +4,7 @@ package # this is an example for modify_subroutine()/subroutne_modifier().
 use strict;
 use warnings;
 
-our $VERSION = '1.00';
+our $VERSION = '0.64';
 
 use Exporter qw(import);
 

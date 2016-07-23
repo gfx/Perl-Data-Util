@@ -22,8 +22,8 @@ my %args = (
     },
 
     requires => {
-        'perl' => '5.008001',
         'XSLoader' => '0.02',
+        'perl' => '5.008001',
     },
 
     recommends => {
@@ -33,13 +33,13 @@ my %args = (
     },
 
     build_requires => {
-        'Devel::PPPort' => '3.19',
-        'Test::More' => '0.62',
-        'Test::Exception' => '0.27',
         'Scope::Guard' => '0',
-        'ExtUtils::ParseXS' => '3.18',
+        'Test::More' => '0.62',
         'Hash::Util::FieldHash::Compat' => '0',
         'ExtUtils::MakeMaker' => '6.59',
+        'Test::Exception' => '0.27',
+        'Devel::PPPort' => '3.19',
+        'ExtUtils::ParseXS' => '3.18',
     },
 
     test_requires => {
