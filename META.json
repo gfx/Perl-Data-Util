@@ -39,7 +39,7 @@
       },
       "configure" : {
          "requires" : {
-            "Module::Build::Tiny" : "0.035"
+            "Module::Build" : "0.4005"
          }
       },
       "develop" : {
@@ -71,7 +71,6 @@
       }
    },
    "version" : "0.63",
-   "x_authority" : "cpan:SYOHEX",
    "x_contributors" : [
       "Fuji Goro <fuji.goro@dena.jp>",
       "Fuji, Goro <g.psy.va@gmail.com>",

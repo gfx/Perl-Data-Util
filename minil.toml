@@ -1,6 +1,6 @@
 name = "Data-Util"
-# badges = ["travis"]
-authority="cpan:SYOHEX"
 
-module_maker="ModuleBuildTiny"
+module_maker="ModuleBuild"
 
+[build]
+build_class = "builder::MyBuilder"
