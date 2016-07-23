@@ -17,3 +17,11 @@ ppport.h
 xshelper.h
 *.stackdump
 *~
+/Data-Util-*
+/.build
+/_build_params
+/Build
+/Build.bat
+!Build/
+!META.json
+!LICENSE

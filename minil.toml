@@ -1,0 +1,6 @@
+name = "Data-Util"
+# badges = ["travis"]
+authority="cpan:SYOHEX"
+
+module_maker="ModuleBuildTiny"
+
