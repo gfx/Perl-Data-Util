@@ -674,7 +674,14 @@ my_uninstall_sub(pTHX_ HV* const stash, const char* const name, STRLEN const nam
 		CV* code;
 
 		if(!isGV(gv)){ /* a subroutine stub or special constant*/
-			if(SvROK((SV*)gv) && ckWARN(WARN_MISC)){
+			       /* or perhaps a sub ref */
+			if(SvROK((SV*)gv)) {
+			    if(SvTYPE(SvRV(gv)) == SVt_PVCV) {
+				if( specified_code &&
+				    specified_code != (CV*)SvRV(gv) )
+					return;
+			    }
+			    else if(ckWARN(WARN_MISC))
 				Perl_warner(aTHX_ packWARN(WARN_MISC), "Constant subroutine %s uninstalled", name);
 			}
 			(void)hv_delete(stash, name, namelen, G_DISCARD);
