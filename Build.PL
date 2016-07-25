@@ -23,7 +23,7 @@ my %args = (
 
     requires => {
         'XSLoader' => '0.02',
-        'perl' => '5.008001',
+        'perl' => '5.010',
     },
 
     recommends => {
@@ -33,13 +33,13 @@ my %args = (
     },
 
     build_requires => {
-        'Scope::Guard' => '0',
-        'Test::More' => '0.62',
-        'Hash::Util::FieldHash::Compat' => '0',
-        'ExtUtils::MakeMaker' => '6.59',
-        'Test::Exception' => '0.27',
         'Devel::PPPort' => '3.19',
+        'ExtUtils::MakeMaker' => '6.59',
         'ExtUtils::ParseXS' => '3.18',
+        'Hash::Util::FieldHash::Compat' => '0',
+        'Scope::Guard' => '0',
+        'Test::Exception' => '0.27',
+        'Test::More' => '0.62',
     },
 
     test_requires => {

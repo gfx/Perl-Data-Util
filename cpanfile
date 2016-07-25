@@ -1,5 +1,5 @@
 requires 'XSLoader', '0.02';
-requires 'perl', '5.008001';
+requires 'perl', '5.010';
 
 on build => sub {
     requires 'Devel::PPPort', '3.19';
