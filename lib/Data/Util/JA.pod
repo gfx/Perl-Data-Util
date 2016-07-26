@@ -551,7 +551,7 @@ C<reftype()>を使うべきではありません。$xがオブジェクトであ
 
 =head1 DEPENDENCIES
 
-Perl 5.8.1 or later.
+Perl 5.10 or later.
 
 =head1 BUGS AND LIMITATIONS
 

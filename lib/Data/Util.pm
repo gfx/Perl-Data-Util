@@ -464,7 +464,7 @@ If true, C<Data::Util> uses the Pure Perl implementation.
 
 =head1 DEPENDENCIES
 
-Perl 5.8.1 or later.
+Perl 5.10 or later.
 
 If you have a C compiler, you can use the XS backend,
 but the Pure Perl backend is also available if you have no C compilers.
