@@ -210,7 +210,6 @@ is $n, 43;
 
 SKIP:{
 	skip 'requires Scope::Gurard for testing GC',    3 unless HAS_SCOPE_GUARD;
-	skip 'Pure Perl version in 5.8.x has a problem', 3 if $] < 5.010;
 
 	@tags = ();
 	for(1 .. 10){
