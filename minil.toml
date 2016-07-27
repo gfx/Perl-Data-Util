@@ -1,6 +1,7 @@
 name = "Data-Util"
 
 module_maker="ModuleBuild"
+allow_pureperl=1
 
 [build]
 build_class = "builder::MyBuilder"
