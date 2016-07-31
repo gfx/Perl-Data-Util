@@ -4,7 +4,7 @@
       "Goro Fuji(gfx) <gfuji(at)cpan.org>."
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Minilla/v3.0.2, CPAN::Meta::Converter version 2.150001",
+   "generated_by" : "Minilla/v3.0.3, CPAN::Meta::Converter version 2.150001",
    "license" : [
       "perl_5"
    ],
@@ -40,7 +40,7 @@
       "configure" : {
          "requires" : {
             "Module::Build" : "0.4005",
-            "Module::Build::XSUtil" : "0.02"
+            "Module::Build::XSUtil" : "0.03"
          }
       },
       "develop" : {
@@ -77,6 +77,7 @@
       "Fuji, Goro <g.psy.va@gmail.com>",
       "Tokuhiro Matsuno <tokuhirom@gmail.com>",
       "Fuji, Goro (gfx) <gfuji@cpan.org>",
+      "Patrice Clement <monsieurp@gentoo.org>",
       "Syohei YOSHIDA <syohex@gmail.com>"
    ]
 }

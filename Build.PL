@@ -9,7 +9,7 @@ use strict;
 use warnings;
 use utf8;
 
-use builder::MyBuilder;
+use Module::Build::XSUtil;
 use File::Basename;
 use File::Spec;
 
@@ -47,22 +47,27 @@ my %args = (
 
     name            => 'Data-Util',
     module_name     => 'Data::Util',
-    allow_pureperl => 0,
+    allow_pureperl => 1,
 
     script_files => [glob('script/*'), glob('bin/*')],
-    c_source     => [qw()],
+    c_source     => [qw(xs-src)],
     PL_files => {},
 
     test_files           => ((-d '.git' || $ENV{RELEASE_TESTING}) && -d 'xt') ? 't/ xt/' : 't/',
     recursive_test_files => 1,
 
 
+    needs_compiler_c99 => 1,
+    needs_compiler_cpp => 0,
+    generate_ppport_h => 'xs-src/ppport.h',
+    generate_xshelper_h => 'xs-src/xshelper.h',
+    cc_warnings => 0,
 );
 if (-d 'share') {
     $args{share_dir} = 'share';
 }
 
-my $builder = builder::MyBuilder->subclass(
+my $builder = Module::Build::XSUtil->subclass(
     class => 'MyBuilder',
     code => q{
         sub ACTION_distmeta {
