@@ -1,3 +1,4 @@
+[![Build Status](https://circleci.com/gh/gfx/Perl-Data-Util.svg)](https://circleci.com/gh/gfx/Perl-Data-Util)
 # NAME
 
 Data::Util - A selection of utilities for data and data types

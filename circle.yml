@@ -5,8 +5,9 @@ machine:
     Asia/Tokyo
 
 dependencies:
+  cache_directories:
+    - ~/.plenv
   pre:
-    - rm -rf ~/.plenv
     - |
       if [ ! -e ~/.plenv/bin/plenv ]; then
         git clone --depth=1 https://github.com/tokuhirom/plenv.git ~/.plenv
