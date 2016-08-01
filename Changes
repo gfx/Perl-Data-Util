@@ -2,6 +2,10 @@ Revision history for Data-Util
 
 {{$NEXT}}
 
+0.65 2016-08-01T13:12:55Z
+    - Drop Perl 5.8 for maintenance
+    - Fix pure perl installation
+
 0.64 2016-07-23T15:13:01Z
     - Fix on perl 5.22.x or higher versions
     - Minilla migrate
