@@ -5,7 +5,7 @@ Data::Util - A selection of utilities for data and data types
 
 # VERSION
 
-This document describes Data::Util version 0.65
+This document describes Data::Util version 0.66
 
 # SYNOPSIS
 
