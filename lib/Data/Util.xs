@@ -104,7 +104,7 @@ S_nv_is_integer(pTHX_ NV const nv) {
     else {
         char buf[128];  /* Must fit sprintf of longest NV(__float128) */
         char* p;
-        (void)my_snprintf(buf, sizeof(buf), "%" NVff, nv);
+        (void)my_snprintf(buf, sizeof(buf), "%" NVgf, nv);
         p = &buf[0];
 
         /* -?[0-9]+ */
