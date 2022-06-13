@@ -4,7 +4,7 @@
       "Goro Fuji(gfx) <gfuji(at)cpan.org>."
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Minilla/v3.1.15, CPAN::Meta::Converter version 2.150010",
+   "generated_by" : "Minilla/v3.1.19, CPAN::Meta::Converter version 2.150010",
    "license" : [
       "perl_5"
    ],
@@ -28,13 +28,7 @@
    "prereqs" : {
       "build" : {
          "requires" : {
-            "Devel::PPPort" : "3.19",
-            "ExtUtils::MakeMaker" : "6.59",
-            "ExtUtils::ParseXS" : "3.18",
-            "Hash::Util::FieldHash::Compat" : "0",
-            "Scope::Guard" : "0",
-            "Test::Exception" : "0.27",
-            "Test::More" : "0.62"
+            "Devel::PPPort" : "3.19"
          }
       },
       "configure" : {
@@ -54,8 +48,16 @@
       },
       "runtime" : {
          "requires" : {
+            "Hash::Util::FieldHash::Compat" : "0",
             "XSLoader" : "0.02",
             "perl" : "5.010"
+         }
+      },
+      "test" : {
+         "requires" : {
+            "Scope::Guard" : "0",
+            "Test::Exception" : "0.27",
+            "Test::More" : "0.62"
          }
       }
    },
@@ -80,6 +82,6 @@
       "Shohei YOSHIDA <syohex@gmail.com>",
       "Tokuhiro Matsuno <tokuhirom@gmail.com>"
    ],
-   "x_serialization_backend" : "JSON::PP version 4.07",
+   "x_serialization_backend" : "JSON::PP version 4.09",
    "x_static_install" : 0
 }
