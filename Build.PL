@@ -22,6 +22,7 @@ my %args = (
     },
 
     requires => {
+        'Hash::Util::FieldHash::Compat' => '0',
         'XSLoader' => '0.02',
         'perl' => '5.010',
     },
@@ -34,15 +35,12 @@ my %args = (
 
     build_requires => {
         'Devel::PPPort' => '3.19',
-        'ExtUtils::MakeMaker' => '6.59',
-        'ExtUtils::ParseXS' => '3.18',
-        'Hash::Util::FieldHash::Compat' => '0',
-        'Scope::Guard' => '0',
-        'Test::Exception' => '0.27',
-        'Test::More' => '0.62',
     },
 
     test_requires => {
+        'Scope::Guard' => '0',
+        'Test::Exception' => '0.27',
+        'Test::More' => '0.62',
     },
 
     name            => 'Data-Util',

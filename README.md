@@ -1,4 +1,4 @@
-[![Actions Status](https://github.com/gfx/Perl-Data-Util/workflows/test.yml/badge.svg)](https://github.com/gfx/Perl-Data-Util/actions) [![MetaCPAN Release](https://badge.fury.io/pl/Data-Util.svg)](https://metacpan.org/release/Data-Util)
+[![Actions Status](https://github.com/gfx/Perl-Data-Util/actions/workflows/test.yml/badge.svg)](https://github.com/gfx/Perl-Data-Util/actions) [![MetaCPAN Release](https://badge.fury.io/pl/Data-Util.svg)](https://metacpan.org/release/Data-Util)
 # NAME
 
 Data::Util - A selection of utilities for data and data types
